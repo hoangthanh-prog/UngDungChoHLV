@@ -21,7 +21,7 @@ jobs:
         uses: NuGet/setup-nuget@v1.2.0
 
       - name: Restore NuGet packages
-        run: nuget restore UngDungChoHLV.sln
+        run: nuget restore QL_Gym_HLV.sln
 
       - name: Build solution
         run: msbuild UngDungChoHLV.sln /p:Configuration=Release
