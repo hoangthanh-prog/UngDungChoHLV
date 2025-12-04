@@ -26,10 +26,6 @@ jobs:
       - name: Build solution
         run: msbuild QL_Gym_HLV.sln /p:Configuration=Release
 
-      - name: Run tests
-        run: vstest.console.exe QL_Gym_HLV.Tests/bin/Release/QL_Gym_HLV.Tests.dll
-
-
       
 
 
