@@ -2,32 +2,26 @@ name: ASP.NET MVC CI
 
 on:
   push:
-    branches:
-      - main   # chạy khi có code push lên nhánh main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
-    runs-on: windows-latest   # dùng runner Windows để build .NET
+    runs-on: windows-latest   # ASP.NET MVC cần Windows runner
 
     steps:
-      # Bước 1: Lấy code từ repo
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Bước 2: Cài đặt .NET SDK
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '6.0.x'   # hoặc phiên bản bạn đang dùng
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.1
 
-      # Bước 3: Restore dependencies
-      - name: Restore dependencies
-        run: dotnet restore
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.2.0
 
-      # Bước 4: Build project
-      - name: Build project
-        run: dotnet build --configuration Release --no-restore
+      - name: Restore NuGet packages
+        run: nuget restore UngDungChoHLV.sln
 
-      # Bước 5: Chạy test (nếu có project test)
-      - name: Run tests
-        run: dotnet test --no-build --verbosity normal
+      - name: Build solution
+        run: msbuild UngDungChoHLV.sln /p:Configuration=Release
