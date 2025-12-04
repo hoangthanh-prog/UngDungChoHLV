@@ -25,3 +25,17 @@ jobs:
 
       - name: Build solution
         run: msbuild QL_Gym_HLV.sln /p:Configuration=Release
+
+      - name: Run tests
+        run: dotnet test --no-build --verbosity normal
+
+      - name: Deploy to Azure WebApp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: QL_Gym_HLV
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: .
+
+      
+
+
