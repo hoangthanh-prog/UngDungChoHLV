@@ -1,0 +1,181 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout02.cshtml";
+    ViewBag.Title = "Đăng nhập";
+}
+<style>
+    .login-card {
+        background: var(--card);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        max-width: 420px;
+        width: 100%;
+    }
+
+    .login-header {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        color: white;
+        padding: 2rem 1.5rem;
+        text-align: center;
+    }
+
+        .login-header h2 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+
+        .login-header p {
+            margin-top: 0.5rem;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+    .login-body {
+        padding: 2rem 1.5rem;
+    }
+
+    .form-floating {
+        margin-bottom: 1rem;
+    }
+
+    .form-control {
+        border-color: var(--border);
+        border: 2px solid #e9ecef;
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        transition: all 0.3s;
+    }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(46,204,113,.25);
+        }
+
+    .input-group-text {
+        background: transparent;
+        border: 2px solid #e9ecef;
+        border-right: none;
+        border-radius: 12px 0 0 12px;
+        color: var(--gray);
+    }
+
+    .form-check-label {
+        font-size: 0.9rem;
+        color: var(--dark);
+    }
+
+    .btn-login {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        border: none;
+        border-radius: 12px;
+        padding: 0.75rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s;
+        width: 100%;
+    }
+
+    .divider {
+        text-align: center;
+        margin: 1.5rem 0;
+        position: relative;
+        color: var(--gray);
+        font-size: 0.9rem;
+    }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e9ecef;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 1rem;
+        }
+
+    .social-login .btn {
+        border-radius: 12px;
+        padding: 0.6rem;
+        font-size: 0.9rem;
+        flex: 1;
+    }
+
+        .social-login .btn i {
+            margin-right: 0.5rem;
+        }
+
+    .text-link {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+        .text-link:hover {
+            text-decoration: underline;
+        }
+
+    .login-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .login-body {
+        padding: 1.5rem 1rem;
+    }
+</style>
+<div style="display: flex; justify-content: center;">
+    <div class="login-card">
+        <!-- Header -->
+        <div class="login-header">
+            <h2><i class="fas fa-dumbbell"></i> Fitness Pro</h2>
+        </div>
+        <!-- Body -->
+        @using (@Html.BeginForm("HLV_DangNhap", "QL_Gym_HLV", FormMethod.Post))
+        {
+            <div class="login-body">
+                <!-- Email -->
+                <div class="form-floating mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        <input type="text" class="form-control" name="user" placeholder="Nhập tên đăng nhập" required />
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="form-floating mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" class="form-control" name="password" placeholder="Mật khẩu" required minlength="6" />
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn btn-login text-white mb-3">
+                    <i class="fas fa-sign-in-alt"></i> Đăng Nhập
+                </button>
+
+            </div>
+        }
+    </div>
+</div>
+<!-- Form Validation -->
+<script>
+    (() => {
+        'use strict'
+        const form = document.getElementById('loginForm')
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        }, false)
+    })()</script>
+

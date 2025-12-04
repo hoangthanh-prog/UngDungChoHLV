@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QL_GymModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ChiTietHoaDon">
+    <Key>
+      <PropertyRef Name="MaCTHD" />
+    </Key>
+    <Property Name="MaCTHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaHD" Type="Int32" Nullable="false" />
+    <Property Name="MaDKGT" Type="Int32" />
+    <Property Name="MaDKPT" Type="Int32" />
+    <Property Name="MaDKLop" Type="Int32" />
+    <Property Name="MaSP" Type="Int32" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="DonGia" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+    <NavigationProperty Name="HoaDon" Relationship="Self.FK_CT_HD" FromRole="ChiTietHoaDon" ToRole="HoaDon" />
+    <NavigationProperty Name="DangKyPT" Relationship="Self.FK_CT_HD_DKPT" FromRole="ChiTietHoaDon" ToRole="DangKyPT" />
+  </EntityType>
+  <EntityType Name="ChuyenMon">
+    <Key>
+      <PropertyRef Name="MaCM" />
+    </Key>
+    <Property Name="MaCM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenChuyenMon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MoTa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LopHoc" Relationship="Self.FK_Lop_CM" FromRole="ChuyenMon" ToRole="LopHoc" />
+  </EntityType>
+  <EntityType Name="DangKyPT">
+    <Key>
+      <PropertyRef Name="MaDKPT" />
+    </Key>
+    <Property Name="MaDKPT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaKH" Type="Int32" Nullable="false" />
+    <Property Name="MaNV" Type="Int32" />
+    <Property Name="SoBuoi" Type="Int32" Nullable="false" />
+    <Property Name="GiaMoiBuoi" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+    <Property Name="NgayDangKy" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TrangThai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="GhiChu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChiTietHoaDon" Relationship="Self.FK_CT_HD_DKPT" FromRole="DangKyPT" ToRole="ChiTietHoaDon" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK_DKPT_KH" FromRole="DangKyPT" ToRole="KhachHang" />
+    <NavigationProperty Name="NhanVien" Relationship="Self.FK_DKPT_NV" FromRole="DangKyPT" ToRole="NhanVien" />
+    <NavigationProperty Name="LichTapPT" Relationship="Self.FK_LichPT_DKPT" FromRole="DangKyPT" ToRole="LichTapPT" />
+  </EntityType>
+  <EntityType Name="HoaDon">
+    <Key>
+      <PropertyRef Name="MaHD" />
+    </Key>
+    <Property Name="MaHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaKH" Type="Int32" Nullable="false" />
+    <Property Name="NgayLap" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TongTien" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="ThanhTien" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="TrangThai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="GiamGia" Type="Decimal" Precision="12" Scale="2" />
+    <NavigationProperty Name="ChiTietHoaDon" Relationship="Self.FK_CT_HD" FromRole="HoaDon" ToRole="ChiTietHoaDon" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK_HoaDon_KH" FromRole="HoaDon" ToRole="KhachHang" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenKH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="SDT" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MaLoaiKH" Type="Int32" />
+    <Property Name="GioiTinh" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="TenDangNhap" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DangKyPT" Relationship="Self.FK_DKPT_KH" FromRole="KhachHang" ToRole="DangKyPT" />
+    <NavigationProperty Name="HoaDon" Relationship="Self.FK_HoaDon_KH" FromRole="KhachHang" ToRole="HoaDon" />
+    <NavigationProperty Name="LoaiKhachHang" Relationship="Self.FK_KhachHang_LoaiKH" FromRole="KhachHang" ToRole="LoaiKhachHang" />
+  </EntityType>
+  <EntityType Name="LichLop">
+    <Key>
+      <PropertyRef Name="MaLichLop" />
+    </Key>
+    <Property Name="MaLichLop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaLop" Type="Int32" Nullable="false" />
+    <Property Name="MaNV" Type="Int32" />
+    <Property Name="NgayHoc" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="GioBatDau" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="GioKetThuc" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="TrangThai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LopHoc" Relationship="Self.FK_LichLop_Lop" FromRole="LichLop" ToRole="LopHoc" />
+    <NavigationProperty Name="NhanVien" Relationship="Self.FK_LichLop_NhanVien_MaNV" FromRole="LichLop" ToRole="NhanVien" />
+  </EntityType>
+  <EntityType Name="LichTapPT">
+    <Key>
+      <PropertyRef Name="MaLichPT" />
+    </Key>
+    <Property Name="MaLichPT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaDKPT" Type="Int32" Nullable="false" />
+    <Property Name="NgayTap" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="GioBatDau" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="GioKetThuc" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="TrangThai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DangKyPT" Relationship="Self.FK_LichPT_DKPT" FromRole="LichTapPT" ToRole="DangKyPT" />
+  </EntityType>
+  <EntityType Name="LoaiKhachHang">
+    <Key>
+      <PropertyRef Name="MaLoaiKH" />
+    </Key>
+    <Property Name="MaLoaiKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MucGiam" Type="Decimal" Precision="5" Scale="2" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK_KhachHang_LoaiKH" FromRole="LoaiKhachHang" ToRole="KhachHang" />
+  </EntityType>
+  <EntityType Name="LopHoc">
+    <Key>
+      <PropertyRef Name="MaLop" />
+    </Key>
+    <Property Name="MaLop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaCM" Type="Int32" Nullable="false" />
+    <Property Name="HocPhi" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+    <Property Name="NgayBatDau" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NgayKetThuc" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="SoBuoi" Type="Int32" />
+    <Property Name="SiSoToiDa" Type="Int32" />
+    <Property Name="SiSoHienTai" Type="Int32" />
+    <Property Name="MaNV" Type="Int32" />
+    <NavigationProperty Name="ChuyenMon" Relationship="Self.FK_Lop_CM" FromRole="LopHoc" ToRole="ChuyenMon" />
+    <NavigationProperty Name="LichLop" Relationship="Self.FK_LichLop_Lop" FromRole="LopHoc" ToRole="LichLop" />
+    <NavigationProperty Name="NhanVien" Relationship="Self.FK_LopHoc_NhanVien_MaNV" FromRole="LopHoc" ToRole="NhanVien" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaChucVu" Type="Int32" />
+    <Property Name="TenDangNhap" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="GioiTinh" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="TenNV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SDT" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="DangKyPT" Relationship="Self.FK_DKPT_NV" FromRole="NhanVien" ToRole="DangKyPT" />
+    <NavigationProperty Name="LichLop" Relationship="Self.FK_LichLop_NhanVien_MaNV" FromRole="NhanVien" ToRole="LichLop" />
+    <NavigationProperty Name="LopHoc" Relationship="Self.FK_LopHoc_NhanVien_MaNV" FromRole="NhanVien" ToRole="LopHoc" />
+  </EntityType>
+  <Association Name="FK_CT_HD">
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
+    <End Role="ChiTietHoaDon" Type="Self.ChiTietHoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDon">
+        <PropertyRef Name="MaHD" />
+      </Principal>
+      <Dependent Role="ChiTietHoaDon">
+        <PropertyRef Name="MaHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CT_HD_DKPT">
+    <End Role="DangKyPT" Type="Self.DangKyPT" Multiplicity="0..1" />
+    <End Role="ChiTietHoaDon" Type="Self.ChiTietHoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DangKyPT">
+        <PropertyRef Name="MaDKPT" />
+      </Principal>
+      <Dependent Role="ChiTietHoaDon">
+        <PropertyRef Name="MaDKPT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lop_CM">
+    <End Role="ChuyenMon" Type="Self.ChuyenMon" Multiplicity="1" />
+    <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuyenMon">
+        <PropertyRef Name="MaCM" />
+      </Principal>
+      <Dependent Role="LopHoc">
+        <PropertyRef Name="MaCM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DKPT_KH">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="DangKyPT" Type="Self.DangKyPT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="DangKyPT">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DKPT_NV">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+    <End Role="DangKyPT" Type="Self.DangKyPT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="DangKyPT">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LichPT_DKPT">
+    <End Role="DangKyPT" Type="Self.DangKyPT" Multiplicity="1" />
+    <End Role="LichTapPT" Type="Self.LichTapPT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DangKyPT">
+        <PropertyRef Name="MaDKPT" />
+      </Principal>
+      <Dependent Role="LichTapPT">
+        <PropertyRef Name="MaDKPT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_KH">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KhachHang_LoaiKH">
+    <End Role="LoaiKhachHang" Type="Self.LoaiKhachHang" Multiplicity="0..1" />
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiKhachHang">
+        <PropertyRef Name="MaLoaiKH" />
+      </Principal>
+      <Dependent Role="KhachHang">
+        <PropertyRef Name="MaLoaiKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LichLop_Lop">
+    <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="1" />
+    <End Role="LichLop" Type="Self.LichLop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LopHoc">
+        <PropertyRef Name="MaLop" />
+      </Principal>
+      <Dependent Role="LichLop">
+        <PropertyRef Name="MaLop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LichLop_NhanVien_MaNV">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+    <End Role="LichLop" Type="Self.LichLop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="LichLop">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LopHoc_NhanVien_MaNV">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+    <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="LopHoc">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QL_GymEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ChiTietHoaDon" EntityType="Self.ChiTietHoaDon" />
+    <EntitySet Name="ChuyenMon" EntityType="Self.ChuyenMon" />
+    <EntitySet Name="DangKyPT" EntityType="Self.DangKyPT" />
+    <EntitySet Name="HoaDon" EntityType="Self.HoaDon" />
+    <EntitySet Name="KhachHang" EntityType="Self.KhachHang" />
+    <EntitySet Name="LichLop" EntityType="Self.LichLop" />
+    <EntitySet Name="LichTapPT" EntityType="Self.LichTapPT" />
+    <EntitySet Name="LoaiKhachHang" EntityType="Self.LoaiKhachHang" />
+    <EntitySet Name="LopHoc" EntityType="Self.LopHoc" />
+    <EntitySet Name="NhanVien" EntityType="Self.NhanVien" />
+    <AssociationSet Name="FK_CT_HD" Association="Self.FK_CT_HD">
+      <End Role="HoaDon" EntitySet="HoaDon" />
+      <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CT_HD_DKPT" Association="Self.FK_CT_HD_DKPT">
+      <End Role="DangKyPT" EntitySet="DangKyPT" />
+      <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lop_CM" Association="Self.FK_Lop_CM">
+      <End Role="ChuyenMon" EntitySet="ChuyenMon" />
+      <End Role="LopHoc" EntitySet="LopHoc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DKPT_KH" Association="Self.FK_DKPT_KH">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="DangKyPT" EntitySet="DangKyPT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DKPT_NV" Association="Self.FK_DKPT_NV">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="DangKyPT" EntitySet="DangKyPT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LichPT_DKPT" Association="Self.FK_LichPT_DKPT">
+      <End Role="DangKyPT" EntitySet="DangKyPT" />
+      <End Role="LichTapPT" EntitySet="LichTapPT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDon_KH" Association="Self.FK_HoaDon_KH">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="HoaDon" EntitySet="HoaDon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KhachHang_LoaiKH" Association="Self.FK_KhachHang_LoaiKH">
+      <End Role="LoaiKhachHang" EntitySet="LoaiKhachHang" />
+      <End Role="KhachHang" EntitySet="KhachHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LichLop_Lop" Association="Self.FK_LichLop_Lop">
+      <End Role="LopHoc" EntitySet="LopHoc" />
+      <End Role="LichLop" EntitySet="LichLop" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LichLop_NhanVien_MaNV" Association="Self.FK_LichLop_NhanVien_MaNV">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="LichLop" EntitySet="LichLop" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LopHoc_NhanVien_MaNV" Association="Self.FK_LopHoc_NhanVien_MaNV">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="LopHoc" EntitySet="LopHoc" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(QL_GymModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(QL_GymModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ThemLichLop">
+      <Parameter Name="MaLop" Mode="In" Type="Int32" />
+      <Parameter Name="MaNV" Mode="In" Type="Int32" />
+      <Parameter Name="NgayHoc" Mode="In" Type="DateTime" />
+      <Parameter Name="GioBatDau" Mode="In" Type="Time" />
+      <Parameter Name="GioKetThuc" Mode="In" Type="Time" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ThemLichTapPT">
+      <Parameter Name="MaDKPT" Mode="In" Type="Int32" />
+      <Parameter Name="NgayTap" Mode="In" Type="DateTime" />
+      <Parameter Name="GioBatDau" Mode="In" Type="Time" />
+      <Parameter Name="GioKetThuc" Mode="In" Type="Time" />
+      <Parameter Name="TrangThai" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ThemLopHocVaLich">
+      <Parameter Name="TenLop" Mode="In" Type="String" />
+      <Parameter Name="MaCM" Mode="In" Type="Int32" />
+      <Parameter Name="HocPhi" Mode="In" Type="Decimal" />
+      <Parameter Name="NgayBatDau" Mode="In" Type="DateTime" />
+      <Parameter Name="NgayKetThuc" Mode="In" Type="DateTime" />
+      <Parameter Name="SiSoToiDa" Mode="In" Type="Int32" />
+      <Parameter Name="MaNV" Mode="In" Type="Int32" />
+      <Parameter Name="GioBatDau" Mode="In" Type="Time" />
+      <Parameter Name="GioKetThuc" Mode="In" Type="Time" />
+    </FunctionImport>
+    <FunctionImport Name="ThongKeLopTheoNV" ReturnType="Collection(QL_GymModel.ThongKeLopTheoNV_Result)">
+      <Parameter Name="MaNV" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="XoaLichVaLop">
+      <Parameter Name="MaLop" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ThongKeLopTheoNV_Result">
+    <Property Type="Int32" Name="MaLop" Nullable="false" />
+    <Property Type="String" Name="TenLop" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="NgayBatDau" Nullable="false" />
+    <Property Type="DateTime" Name="NgayKetThuc" Nullable="false" />
+    <Property Type="Int32" Name="SoBuoi" Nullable="true" />
+    <Property Type="Int32" Name="SiSoToiDa" Nullable="true" />
+    <Property Type="Decimal" Name="HocPhi" Nullable="false" Precision="12" Scale="2" />
+    <Property Type="Int32" Name="MaCM" Nullable="false" />
+  </ComplexType>
+</Schema>

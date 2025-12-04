@@ -1,0 +1,315 @@
+﻿@{
+    ViewBag.Title = "Chỉnh sửa lịch";
+}
+<style>
+    .schedule-table {
+        background: var(--card);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .table th {
+        background: var(--secondary);
+        color: white;
+        font-weight: 600;
+        text-align: center;
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .table td {
+        vertical-align: middle;
+        text-align: center;
+        padding: 0;
+        transition: all 0.3s;
+        position: relative;
+    }
+
+    .class-card {
+        background: linear-gradient(145deg, var(--primary), var(--primary-dark));
+        color: white;
+        border-radius: 12px;
+        font-size: 0.875rem;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+    }
+
+        .class-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
+        }
+
+        .class-card.trainer {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+
+        .class-card.success {
+            background: var(--success);
+            color: var(--text);
+        }
+
+        .class-card.warning {
+            background: var(--warning);
+        }
+
+        .class-card.danger {
+            background: var(--danger);
+            color: white;
+        }
+
+    .table td, .table th {
+        padding: 0.5rem 0.25rem;
+        font-size: 0.8rem;
+    }
+
+    .class-card {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.25rem;
+    }
+
+    .week-display {
+        background: var(--secondary);
+        color: #fff;
+        padding: 1rem;
+        border-radius: 12px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .empty-slot {
+        color: #95a5a6;
+        font-style: italic;
+    }
+</style>
+<div class="container">
+    <div class="mb-2 row">
+        <div class="date-input col-2">
+            @using (Html.BeginForm("ChonNgay", "QL_Gym_HLV", FormMethod.Get, new { id = "dateForm" }))
+            {
+                <input type="date" name="selectedDate" id="datePicker" class="form-control "
+                       value="@(((DateTime)(ViewBag.SelectedDate)).ToString("yyyy-MM-dd"))" />
+            }
+            <div class="mt-2">
+                <a class="btn text-white" href="@Url.Action("TuanTruocHoacSau", new { selectedDate = ViewBag.SelectedDate, i = -7, id = 0 })" style="background: var(--green)">Trước</a>
+                <a class="btn text-white" href="@Url.Action("TuanTruocHoacSau", new { selectedDate = ViewBag.SelectedDate, i = 7, id = 0 })" style="background: var(--green) ">Sau</a>
+            </div>
+        </div>
+        <div class="text-center col-6">
+            <h2>
+                <i class="fa-solid fa-toolbox"></i>
+                Chỉnh sửa lịch
+            </h2>
+        </div>
+        <div id="weekInfo" class="week-display align-content-center col-4" style="font-size: larger">
+            Tuần: @ViewBag.Monday.ToString("dd/MM/yyyy") → @ViewBag.Sunday.ToString("dd/MM/yyyy")
+        </div>
+    </div>
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+    <div class="schedule-table">
+        <div class="table-responsive">
+            <table class="table table-bordered mb-0">
+                <thead>
+                    <tr>
+                        <th>Thời gian</th>
+                        <th>Thứ 2</th>
+                        <th>Thứ 3</th>
+                        <th>Thứ 4</th>
+                        <th>Thứ 5</th>
+                        <th>Thứ 6</th>
+                        <th>Thứ 7</th>
+                        <th>Chủ Nhật</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                        </td>
+                        @{
+                            DateTime start = ViewBag.Monday;
+                            for (int i = 0; i < 7; i++)
+                            {
+                                <td>
+                                    @{
+                                        DateTime tempt = start.AddDays(i);
+                                        string modalid = "addClassModal_" + i;
+                                        <a class="text-decoration-none" style="color: green; cursor: pointer"
+                                           data-bs-toggle="modal" data-bs-target="#@modalid">
+                                            <i class="fa-solid fa-circle-plus"></i> Thêm lịch
+                                        </a>
+                                        <div class="modal fade" id="@modalid">
+                                            @Html.Action("ThemLich", new { date = start.AddDays(i) })
+                                        </div>
+                                    }
+                                </td>
+                            }
+                        }
+
+                    </tr>
+                    <!-- Sáng -->
+                    <tr>
+                        <td class="fw-bold text-dark">Sáng</td>
+                        @{
+                            for (int i = 0; i < 7; i++)
+                            {
+                                <td>
+                                    @{
+                                        DateTime tempt = start.AddDays(i);
+                                        var sa = (List<QL_Gym_HLV.Models.LichLop>)ViewBag.Sang;
+                                        var sa1 = sa.Where(n => n.NgayHoc.Date == tempt.Date).OrderBy(n => n.GioBatDau).ToList();
+                                        var pt = (List<QL_Gym_HLV.Models.LichTapPT>)ViewBag.SangPT;
+                                        var pt1 = pt.Where(n => n.NgayTap.Date == tempt.Date).OrderBy(n => n.GioBatDau).ToList();
+                                        if (sa1.Count < 1 && pt1.Count < 1)
+                                        {
+                                            <div class="empty-slot">Nghỉ</div>
+                                        }
+                                        else
+                                        {
+                                            foreach (var j in pt1)
+                                            {
+                                                <div class="class-card w-100 mx-auto mb-2" style="max-width: 180px; background: linear-gradient(145deg, var(--coral-pink), var(--violet)) ">
+                                                    <div class="mx-auto" style="max-width: 120px">@j.DangKyPT.KhachHang.TenKH</div>
+                                                    <div class="trainer">@j.GioBatDau -> @j.GioKetThuc </div>
+                                                    <div class="trainer">@j.NgayTap.ToString("dd/MM/yyyy") </div>
+                                                    <div class="w-100 rounded border-0" style="background: red">
+                                                        <a href="@Url.Action("XoaLich", new {id = j.MaLichPT, loai = 0 , date = j.NgayTap})" class="text-white text-decoration-none fw-bold">Xóa</a>
+                                                    </div>
+                                                </div>
+                                            }
+                                            foreach (var j in sa1)
+                                            {
+                                                <div class="class-card w-100 mx-auto" style="max-width: 180px;">
+                                                    <div class="mx-auto" style="max-width: 120px">@j.LopHoc.TenLop</div>
+                                                    <div class="trainer">@j.GioBatDau -> @j.GioKetThuc </div>
+                                                    <div class="trainer">@j.NgayHoc.ToString("dd/MM/yyyy") </div>
+                                                    <div class="w-100 rounded" style="background: red">
+                                                        <a href="@Url.Action("XoaLich", new {id = j.MaLichLop, loai = 1, date = j.NgayHoc})" class="text-white text-decoration-none fw-bold">Xóa</a>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    }
+                                </td>
+                            }
+                        }
+                    </tr>
+
+                    <!-- Chiều -->
+                    <tr>
+                        <td class="fw-bold text-dark">Chiều</td>
+                        @{
+                            for (int i = 0; i < 7; i++)
+                            {
+                                <td>
+                                    @{
+                                        DateTime tempt = start.AddDays(i);
+                                        var sa = (List<QL_Gym_HLV.Models.LichLop>)ViewBag.Chieu;
+                                        var sa1 = sa.Where(n => n.NgayHoc.Date == tempt.Date).OrderBy(n => n.GioBatDau).ToList();
+                                        var pt = (List<QL_Gym_HLV.Models.LichTapPT>)ViewBag.ChieuPT;
+                                        var pt1 = pt.Where(n => n.NgayTap.Date == tempt.Date).OrderBy(n => n.GioBatDau).ToList();
+                                        if (sa1.Count < 1 && pt1.Count < 1)
+                                        {
+                                            <div class="empty-slot">Nghỉ</div>
+                                        }
+                                        else
+                                        {
+                                            foreach (var j in pt1)
+                                            {
+                                                <div class="class-card w-100 mx-auto mb-2" style="max-width: 180px; background: linear-gradient(145deg, var(--coral-pink), var(--violet)) ">
+                                                    <div class="mx-auto" style="max-width: 120px">@j.DangKyPT.KhachHang.TenKH</div>
+                                                    <div class="trainer">@j.GioBatDau -> @j.GioKetThuc </div>
+                                                    <div class="trainer">@j.NgayTap.ToString("dd/MM/yyyy") </div>
+                                                    <div class="w-100 rounded" style="background: red">
+                                                        <a href="@Url.Action("XoaLich", new {id = j.MaLichPT, loai = 0 , date = j.NgayTap})" class="text-white text-decoration-none fw-bold">Xóa</a>
+                                                    </div>
+                                                </div>
+                                            }
+                                            foreach (var j in sa1)
+                                            {
+                                                <div class="class-card w-100 mx-auto" style="max-width: 180px;">
+                                                    <div class="mx-auto" style="max-width: 120px">@j.LopHoc.TenLop</div>
+                                                    <div class="trainer">@j.GioBatDau -> @j.GioKetThuc </div>
+                                                    <div class="trainer">@j.NgayHoc.ToString("dd/MM/yyyy") </div>
+                                                    <div class="w-100 rounded" style="background: red">
+                                                        <a href="@Url.Action("XoaLich", new {id = j.MaLichLop, loai = 1 , date = j.NgayHoc})" class="text-white text-decoration-none fw-bold">Xóa</a>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    }
+                                </td>
+                            }
+                        }
+                    </tr>
+
+                    <!-- Tối -->
+                    <tr>
+                        <td class="fw-bold text-dark">Tối</td>
+                        @{
+                            for (int i = 0; i < 7; i++)
+                            {
+                                <td>
+                                    @{
+                                        DateTime tempt = start.AddDays(i);
+                                        var sa = (List<QL_Gym_HLV.Models.LichLop>)ViewBag.Toi;
+                                        var sa1 = sa.Where(n => n.NgayHoc.Date == tempt.Date).OrderBy(n => n.GioBatDau).ToList();
+                                        var pt = (List<QL_Gym_HLV.Models.LichTapPT>)ViewBag.ToiPT;
+                                        var pt1 = pt.Where(n => n.NgayTap.Date == tempt.Date).OrderBy(n => n.GioBatDau).ToList();
+                                        if (sa1.Count < 1 && pt1.Count < 1)
+                                        {
+                                            <div class="empty-slot">Nghỉ</div>
+                                        }
+                                        else
+                                        {
+                                            foreach (var j in pt1)
+                                            {
+                                                <div class="class-card w-100 mx-auto mb-2" style="max-width: 180px; background: linear-gradient(145deg, var(--coral-pink), var(--violet)) ">
+                                                    <div class="mx-auto" style="max-width: 120px">@j.DangKyPT.KhachHang.TenKH</div>
+                                                    <div class="trainer">@j.GioBatDau -> @j.GioKetThuc </div>
+                                                    <div class="trainer">@j.NgayTap.ToString("dd/MM/yyyy") </div>
+                                                    <div class="w-100 rounded" style="background: red">
+                                                        <a href="@Url.Action("XoaLich", new {id = j.MaLichPT, loai = 0 , date = j.NgayTap})" class="text-white text-decoration-none fw-bold">Xóa</a>
+                                                    </div>
+                                                </div>
+                                            }
+                                            foreach (var j in sa1)
+                                            {
+                                                <div class="class-card w-100 mx-auto" style="max-width: 180px;">
+                                                    <div class="mx-auto" style="max-width: 120px">@j.LopHoc.TenLop</div>
+                                                    <div class="trainer">@j.GioBatDau -> @j.GioKetThuc </div>
+                                                    <div class="trainer">@j.NgayHoc.ToString("dd/MM/yyyy") </div>
+                                                    <div class="w-100 rounded" style="background: red">
+                                                        <a href="@Url.Action("XoaLich", new {id = j.MaLichLop, loai = 1 , date = j.NgayHoc})" class="text-white text-decoration-none fw-bold">Xóa</a>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    }
+                                </td>
+                            }
+                        }
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <small class="text-muted">
+            <i class="fas fa-info-circle"></i> Click vào lớp để xem chi tiết hoặc đăng ký
+        </small>
+    </div>
+</div>
+<script>
+    document.getElementById("datePicker").addEventListener("change", function () {
+        document.getElementById("dateForm").submit(); // tự động submit form
+    });
+</script>

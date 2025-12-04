@@ -1,0 +1,94 @@
+﻿@model List<QL_Gym_HLV.Models.LopHoc>
+@{
+    ViewBag.Title = "Danh sách lớp";
+}
+<div class="container-fluid">
+    <div class="page-header text-center mb-4">
+        <h3 class="mb-0">
+            <i class="fas fa-dumbbell me-2"></i>
+            Quản Lý Lớp
+        </h3>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <div class="row g-3 align-items-center">
+                @using (Html.BeginForm("TimKiem", "QL_Gym_HLV", FormMethod.Get))
+                {
+                    <div class="d-flex">
+                        <input type="hidden" name="loai" value="1" />
+                        <input type="text" name="keyword" class="form-control me-3" placeholder="Tìm kiếm lớp...">
+                        <button type="submit" class="btn btn-outline-primary">Tìm</button>
+                    </div>
+                }
+                <div class="col-auto">
+                    <button class="btn" style="background: var(--border); color: blue" data-bs-toggle="modal" data-bs-target="#addClassModal">
+                        <i class="fas fa-plus"></i> Thêm lớp mới
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+    <div class="card shadow">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Mã lớp</th>
+                        <th>Tên lớp</th>
+                        <th>Ngày bắt đầu</th>
+                        <th>Ngày kết thúc</th>
+                        <th>Số buổi</th>
+                        <th>Sĩ số/Tối đa</th>
+                        <th>Học phí (VNĐ)</th>
+                        <th>Mã CM</th>
+                        <th width="110">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var i in Model)
+                    {
+                        <tr>
+                            <td>@i.MaLop</td>
+                            <td><strong>@i.TenLop</strong></td>
+                            <td>@i.NgayBatDau.ToString("dd/MM/yyyy")</td>
+                            <td>@i.NgayKetThuc.ToString("dd/MM/yyyy")</td>
+                            <td>@i.SoBuoi</td>
+                            <td>@(i.SiSoHienTai ?? 0)/@i.SiSoToiDa</td>
+                            <td>@i.HocPhi.ToString("N0")</td>
+                            <td>@i.MaCM</td>
+                            <td>
+                                    @{
+
+                                        int id = i.MaLop;
+                                        string modalid = "addClassModal_" + id;
+                                        <a class="text-decoration-none btn btn-warning btn-sm text-white" title="Sửa" style="cursor: pointer"
+                                           data-bs-toggle="modal" data-bs-target="#@modalid">
+                                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                                        </a>
+                                        <div class="modal fade" id="@modalid">
+                                            @Html.Action("ChinhSuaLop", new { id = id })
+                                        </div>
+                                    }
+                                    <a class="btn btn-danger btn-sm" title="Xóa" href="@Url.Action("XoaLichVaLop", new {id = i.MaLop})"
+                                       onclick="return confirm('Bạn có chắc muốn xóa lớp <<@i.TenLop>> không?');">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="addClassModal">
+    @Html.Action("ThemLop")
+</div>

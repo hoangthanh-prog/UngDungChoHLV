@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cd23cd38318a4fbeb94671401a3bc14e" Name="Diagram1">
+        <EntityTypeShape EntityType="QL_GymModel.ChiTietHoaDon" Width="1.5" PointX="8.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_GymModel.ChuyenMon" Width="1.5" PointX="3.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_GymModel.DangKyPT" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_GymModel.HoaDon" Width="1.5" PointX="6" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_GymModel.KhachHang" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_GymModel.LichLop" Width="1.5" PointX="6" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_GymModel.LichTapPT" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_GymModel.LoaiKhachHang" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_GymModel.LopHoc" Width="1.5" PointX="6" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_GymModel.NhanVien" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <AssociationConnector Association="QL_GymModel.FK_CT_HD" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_GymModel.FK_CT_HD_DKPT" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_GymModel.FK_Lop_CM" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_GymModel.FK_DKPT_KH" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_GymModel.FK_DKPT_NV" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_GymModel.FK_LichPT_DKPT" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_GymModel.FK_HoaDon_KH" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_GymModel.FK_KhachHang_LoaiKH" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_GymModel.FK_LichLop_Lop" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_GymModel.FK_LichLop_NhanVien_MaNV" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_GymModel.FK_LopHoc_NhanVien_MaNV" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

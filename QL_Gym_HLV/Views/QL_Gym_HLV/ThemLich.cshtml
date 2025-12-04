@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "ThemLich";
+}
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header text-white" style="background: var(--primary)">
+            <h5 class="modal-title">Thêm lịch mới</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+            @using (Html.BeginForm("ThemLich", "QL_Gym_HLV", FormMethod.Post))
+            {
+                <input type="hidden" name="ngayHoc" value="@ViewBag.date" />
+                <p>@ViewBag.date.ToString("dd/MM/yyyy")</p>
+                <div class="row g-4">
+                    <div class="col-md-12">
+                        <label for="tenLop" class="form-label">
+                            <i class="fas fa-dumbbell"></i> Tên lớp
+                        </label>
+                        @Html.DropDownList("MaLop", ViewBag.Lop as SelectList, "--Chọn lớp--", new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-12">
+                        <label for="tenLop" class="form-label">
+                            <i class="fas fa-dumbbell"></i> Tên khách hàng
+                        </label>
+                        @Html.DropDownList("MaDKPT", ViewBag.PT as SelectList, "--Chọn khách hàng--", new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-6">
+                        <label for="gioBatDau" class="form-label">
+                            <i class="fa-solid fa-hourglass-start"></i> Giờ bắt đầu
+                        </label>
+                        <input type="time" class="form-control" name="gioBatDau" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="gioKetThuc" class="form-label">
+                            <i class="fa-solid fa-hourglass-end"></i> Giờ kết thúc
+                        </label>
+                        <input type="time" class="form-control" name="gioKetThuc" required>
+                    </div>
+
+                    <div class="col-12 text-center mt-4 modal-footer">
+                        <button type="submit" class="btn text-white" style="background: var(--primary-dark)">
+                            <i class="fas fa-save me-2"></i> Lưu
+                        </button>
+                        <a href="#" class="btn btn-secondary ms-3" data-bs-dismiss="modal">
+                            <i class="fas fa-arrow-left"></i> Hủy
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

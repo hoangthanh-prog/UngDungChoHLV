@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "ThemLopVaLich";
+}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header text-white" style="background: var(--primary)">
+            <h5 class="modal-title">Thêm lớp mới</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+            <button class="btn btn-success" onclick="toggleDivs()">Thêm lớp và lịch</button> 
+            @using (Html.BeginForm("ThemLop", "QL_Gym_HLV", FormMethod.Post))
+            {
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <label for="tenLop" class="form-label">
+                            <i class="fas fa-dumbbell"></i> Tên lớp
+                        </label>
+                        <input type="text" class="form-control" name="tenLop" placeholder="Nhập tên lớp" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="siSo" class="form-label">
+                            <i class="fas fa-users"></i> Sĩ số tối đa
+                        </label>
+                        <input type="number" class="form-control" name="siSo" min="1" placeholder="Nhập sĩ số tối đa" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="ngayBatDau" class="form-label">
+                            <i class="far fa-calendar-alt"></i> Ngày bắt đầu
+                        </label>
+                        <input type="date" class="form-control" name="ngayBatDau" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="ngayKetThuc" class="form-label">
+                            <i class="far fa-calendar-check"></i> Ngày kết thúc
+                        </label>
+                        <input type="date" class="form-control" name="ngayKetThuc" required>
+                    </div>
+
+                    <div class="col-md-6" id="gioBD" style="display: none">
+                        <label for="gioBatDau" class="form-label">
+                            <i class="fa-solid fa-hourglass-start"></i> Giờ bắt đầu
+                        </label>
+                        <input type="time" class="form-control" name="gioBatDau">
+                    </div>
+
+                    <div class="col-md-6" id="gioKT" style="display: none">
+                        <label for="gioKetThuc" class="form-label">
+                            <i class="fa-solid fa-hourglass-end"></i> Giờ kết thúc
+                        </label>
+                        <input type="time" class="form-control" name="gioKetThuc">
+                    </div>
+
+                    <div class="col-md-12">
+                        <label for="hocPhi" class="form-label">
+                            <i class="fas fa-dollar-sign"></i> Học phí (VNĐ)
+                        </label>
+                        <input type="number" class="form-control" name="hocPhi" min="0" placeholder="Nhập học phí" required>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label for="maCM" class="form-label">
+                            <i class="fas fa-id-card"></i> Mã chuyên môn
+                        </label>
+                        @Html.DropDownList("MaCM", ViewBag.MaCM as SelectList, "--Chuyên môn--", new { @class = "form-control" })
+                    </div>
+
+                    <div class="col-12 text-center mt-4 modal-footer">
+                        <button type="submit" class="btn text-white" style="background: var(--primary-dark)">
+                            <i class="fas fa-save me-2"></i> Lưu & Tạo Lớp
+                        </button>
+                        <a href="#" class="btn btn-secondary ms-3" data-bs-dismiss="modal">
+                            <i class="fas fa-arrow-left"></i> Hủy
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleDivs() {
+        let divs = ["gioBD", "gioKT"];
+        divs.forEach(id => {
+            let el = document.getElementById(id);
+            if (el.style.display === "none") {
+                el.style.display = "block";                
+            } else {
+                el.style.display = "none"; 
+            }
+        });
+    }
+</script>

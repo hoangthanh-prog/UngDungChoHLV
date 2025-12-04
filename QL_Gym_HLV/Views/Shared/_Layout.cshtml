@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Pro - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        :root {
+            --teal-cyan: #00d2d3;
+            --lime-green: #7bed9f;
+            --green: #00d572;
+            --coral-pink: #ff6b6b;
+            --violet: #8e44ad;
+            --amber: #10cfde;
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --secondary: #0c4a6e;
+            --bg: #f0f9ff;
+            --card: #ffffff;
+            --border: #bae6fd;
+            --text: #0c4a6e;
+            --text-muted: #64748b;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+        }
+
+        input, select {
+            max-width: none;
+        }
+
+        .btn-login {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border: none;
+            border-radius: 12px;
+            padding: 0.75rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+            .btn-login:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4);
+            }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-light" style="box-shadow: 0 4px 15px rgba(14,165,233,0.15);">
+        <div class="container">
+            <h1 class="fw-bold" style="color: var(--primary-dark)">HUẤN LUYỆN VIÊN</h1>
+        </div>
+        @if (Session["hlv"] != null)
+        {
+            <div class="pe-3 text-center">
+                <a class="mx-auto text-decoration-none" style="color: var(--text)">@(((QL_Gym_HLV.Models.NhanVien)Session["hlv"]).TenNV)</a><br>
+                <a href="@Url.Action("HLV_DangXuat")" class="text-danger">Đăng xuất</a>
+            </div>
+        }
+    </nav>
+    <div class="body-content row" style="min-height: 75vh;">
+        <div class="col-2">
+            @Html.Action("_MenuChucNang")
+        </div>
+        <div class="col-10">
+            @RenderBody()
+        </div>
+        
+    </div>
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

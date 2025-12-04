@@ -1,0 +1,103 @@
+﻿@model List<QL_Gym_HLV.Models.DangKyPT>
+@{
+    ViewBag.Title = "DanhSachKhachPT";
+}
+<div class="container-fluid">
+    <div class="page-header text-center mb-4">
+        <h3 class="mb-0">
+            <i class="fa-solid fa-clipboard-user"></i>
+            Danh sách khách PT
+        </h3>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <div class="g-3 align-items-center">
+                @using (Html.BeginForm("TimKiem", "QL_Gym_HLV", FormMethod.Get))
+                {
+                    <div class="d-flex">
+                        <input type="hidden" name="loai" value="2" />
+                        <input type="text" name="keyword" class="form-control me-3" placeholder="Tìm kiếm sđt khách...">
+                        <button type="submit" class="btn btn-outline-primary">Tìm</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+    <div class="card shadow">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Tên khách hàng</th>
+                        <th>Số buổi</th>
+                        <th>Giá mỗi buổi</th>
+                        <th>Ngày đăng ký</th>
+                        <th>SĐT</th>
+                        <th>Trạng thái</th>
+                        <th>Mục tiêu</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var i in Model)
+                    {
+                        <tr>
+                            <th>@i.KhachHang.TenKH</th>
+                            <th>@i.SoBuoi</th>
+                            <th>@(i.GiaMoiBuoi.ToString("N0"))</th>
+                            <th>@i.NgayDangKy.ToString("dd/MM/yyyy")</th>
+                            <th>@i.KhachHang.SDT</th>
+                            <th>@i.TrangThai</th>
+                            <th>@i.GhiChu</th>
+                            @if (i.TrangThai == "Chờ duyệt")
+                            {
+                                string modalid = "addClassModal_" + i.MaDKPT;
+                                <th>
+                                    <a class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#@modalid">Nhận</a>
+                                    <div class="modal fade" id="@modalid">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header text-white" style="background: var(--primary)">
+                                                    <h5 class="modal-title">Nhập giá mỗi buổi</h5>
+                                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    @using (Html.BeginForm("NhanPT", "QL_Gym_HLV", FormMethod.Post))
+                                                    {
+                                                        @Html.AntiForgeryToken()
+                                                        <input type="hidden" value="@i.SoBuoi" name="sb" />
+                                                        <input type="hidden" value="@i.MaKH" name="kh" />
+                                                        <input type="hidden" value="@i.MaDKPT" name="id" />
+                                                        <label for="hocPhi" class="form-label">
+                                                            <i class="fas fa-dollar-sign"></i> Học phí (VNĐ)
+                                                        </label>
+                                                        <input type="number" class="form-control" name="hocPhi" min="0" placeholder="Nhập học phí" required>
+                                                        <div class="mt-4 text-center">
+                                                            <button class="btn btn-outline-warning">Xác nhận</button>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </th>
+                            }
+                            else
+                            {
+                                <th></th>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
