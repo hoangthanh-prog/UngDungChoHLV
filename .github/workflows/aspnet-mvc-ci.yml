@@ -25,6 +25,7 @@ jobs:
         run: dotnet restore
 
       # Bước 4: Build project
+      - name: Build project
         run: dotnet build --configuration Release --no-restore
 
       # Bước 5: Chạy test (nếu có project test)
