@@ -24,7 +24,8 @@ jobs:
         run: nuget restore QL_Gym_HLV.sln
 
       - name: Build solution
-        run: msbuild QL_Gym_HLV.sln /p:Configuration=Release
+        run: msbuild QL_Gym_HLV.sln /p:Configuration=Release      
+        
 
       
 
