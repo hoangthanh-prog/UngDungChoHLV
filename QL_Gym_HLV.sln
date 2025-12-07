@@ -5,8 +5,6 @@ VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QL_Gym_HLV", "QL_Gym_HLV\QL_Gym_HLV.csproj", "{262B3AF3-DD3C-4999-8844-4EF529843C26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QL_Gym_HLV.Tests", "QL_Gym_HLV.Tests\QL_Gym_HLV.Tests.csproj", "{C96D3973-394F-47E7-88C5-BDCE2A6D4A0E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,18 +27,6 @@ Global
 		{262B3AF3-DD3C-4999-8844-4EF529843C26}.Release|x64.Build.0 = Release|Any CPU
 		{262B3AF3-DD3C-4999-8844-4EF529843C26}.Release|x86.ActiveCfg = Release|Any CPU
 		{262B3AF3-DD3C-4999-8844-4EF529843C26}.Release|x86.Build.0 = Release|Any CPU
-		{C96D3973-394F-47E7-88C5-BDCE2A6D4A0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C96D3973-394F-47E7-88C5-BDCE2A6D4A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C96D3973-394F-47E7-88C5-BDCE2A6D4A0E}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{C96D3973-394F-47E7-88C5-BDCE2A6D4A0E}.Debug|x64.Build.0 = Debug|Any CPU
-		{C96D3973-394F-47E7-88C5-BDCE2A6D4A0E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{C96D3973-394F-47E7-88C5-BDCE2A6D4A0E}.Debug|x86.Build.0 = Debug|Any CPU
-		{C96D3973-394F-47E7-88C5-BDCE2A6D4A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C96D3973-394F-47E7-88C5-BDCE2A6D4A0E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C96D3973-394F-47E7-88C5-BDCE2A6D4A0E}.Release|x64.ActiveCfg = Release|Any CPU
-		{C96D3973-394F-47E7-88C5-BDCE2A6D4A0E}.Release|x64.Build.0 = Release|Any CPU
-		{C96D3973-394F-47E7-88C5-BDCE2A6D4A0E}.Release|x86.ActiveCfg = Release|Any CPU
-		{C96D3973-394F-47E7-88C5-BDCE2A6D4A0E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
