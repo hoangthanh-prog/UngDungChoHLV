@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{262B3AF3-DD3C-4999-8844-4EF529843C26}|QL_Gym_HLV\\QL_Gym_HLV.csproj|C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\ql_gym_hlv\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{262B3AF3-DD3C-4999-8844-4EF529843C26}|QL_Gym_HLV\\QL_Gym_HLV.csproj|solutionrelative:ql_gym_hlv\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{262B3AF3-DD3C-4999-8844-4EF529843C26}|QL_Gym_HLV\\QL_Gym_HLV.csproj|c:\\users\\nhokl\\onedrive\\t\u00E0i li\u1EC7u\\university\\code\\hqtcsdl\\ql_gym_hlv\\ql_gym_hlv\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{262B3AF3-DD3C-4999-8844-4EF529843C26}|QL_Gym_HLV\\QL_Gym_HLV.csproj|solutionrelative:ql_gym_hlv\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{C96D3973-394F-47E7-88C5-BDCE2A6D4A0E}|QL_Gym_HLV.Tests\\QL_Gym_HLV.Tests.csproj|c:\\users\\nhokl\\onedrive\\t\u00E0i li\u1EC7u\\university\\code\\hqtcsdl\\ql_gym_hlv\\ql_gym_hlv.tests\\ql_gym_hlvcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C96D3973-394F-47E7-88C5-BDCE2A6D4A0E}|QL_Gym_HLV.Tests\\QL_Gym_HLV.Tests.csproj|solutionrelative:ql_gym_hlv.tests\\ql_gym_hlvcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{262B3AF3-DD3C-4999-8844-4EF529843C26}|QL_Gym_HLV\\QL_Gym_HLV.csproj|C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\ql_gym_hlv\\controllers\\ql_gym_hlvcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{262B3AF3-DD3C-4999-8844-4EF529843C26}|QL_Gym_HLV\\QL_Gym_HLV.csproj|solutionrelative:ql_gym_hlv\\controllers\\ql_gym_hlvcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{262B3AF3-DD3C-4999-8844-4EF529843C26}|QL_Gym_HLV\\QL_Gym_HLV.csproj|C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\ql_gym_hlv\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{262B3AF3-DD3C-4999-8844-4EF529843C26}|QL_Gym_HLV\\QL_Gym_HLV.csproj|solutionrelative:ql_gym_hlv\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{262B3AF3-DD3C-4999-8844-4EF529843C26}|QL_Gym_HLV\\QL_Gym_HLV.csproj|C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\ql_gym_hlv\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{262B3AF3-DD3C-4999-8844-4EF529843C26}|QL_Gym_HLV\\QL_Gym_HLV.csproj|solutionrelative:ql_gym_hlv\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{262B3AF3-DD3C-4999-8844-4EF529843C26}|QL_Gym_HLV\\QL_Gym_HLV.csproj|C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\ql_gym_hlv\\views\\ql_gym_hlv\\lichlamviec.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -62,23 +66,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ChinhSuaLop.cshtml",
-              "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Views\\QL_Gym_HLV\\ChinhSuaLop.cshtml",
-              "RelativeDocumentMoniker": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\ChinhSuaLop.cshtml",
-              "ToolTip": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Views\\QL_Gym_HLV\\ChinhSuaLop.cshtml",
-              "RelativeToolTip": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\ChinhSuaLop.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-20T05:11:57.201Z"
+              "DocumentIndex": 0,
+              "Title": "QL_Gym_HLVControllerTests.cs",
+              "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV.Tests\\QL_Gym_HLVControllerTests.cs",
+              "RelativeDocumentMoniker": "QL_Gym_HLV.Tests\\QL_Gym_HLVControllerTests.cs",
+              "ToolTip": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV.Tests\\QL_Gym_HLVControllerTests.cs",
+              "RelativeToolTip": "QL_Gym_HLV.Tests\\QL_Gym_HLVControllerTests.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAcwCgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T10:49:19.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "QL_Gym_HLV\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "QL_Gym_HLV\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADMAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-18T06:17:17.021Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "ChinhSuaLich.cshtml",
               "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Views\\QL_Gym_HLV\\ChinhSuaLich.cshtml",
               "RelativeDocumentMoniker": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\ChinhSuaLich.cshtml",
@@ -86,11 +108,12 @@
               "RelativeToolTip": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\ChinhSuaLich.cshtml",
               "ViewState": "AgIAABoBAAAAAAAAAAAAACUBAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-18T13:30:15.629Z"
+              "WhenOpened": "2025-11-18T13:30:15.629Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "DanhSachKhachPT.cshtml",
               "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Views\\QL_Gym_HLV\\DanhSachKhachPT.cshtml",
               "RelativeDocumentMoniker": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\DanhSachKhachPT.cshtml",
@@ -98,11 +121,12 @@
               "RelativeToolTip": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\DanhSachKhachPT.cshtml",
               "ViewState": "AgIAACUAAAAAAAAAAAAtwDoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-19T09:57:50.898Z"
+              "WhenOpened": "2025-11-19T09:57:50.898Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ThemLich.cshtml",
               "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Views\\QL_Gym_HLV\\ThemLich.cshtml",
               "RelativeDocumentMoniker": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\ThemLich.cshtml",
@@ -110,11 +134,12 @@
               "RelativeToolTip": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\ThemLich.cshtml",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-18T15:53:56.181Z"
+              "WhenOpened": "2025-11-18T15:53:56.181Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "LichLamViec.cshtml",
               "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Views\\QL_Gym_HLV\\LichLamViec.cshtml",
               "RelativeDocumentMoniker": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\LichLamViec.cshtml",
@@ -122,11 +147,38 @@
               "RelativeToolTip": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\LichLamViec.cshtml",
               "ViewState": "AgIAAFoAAAAAAAAAAABhwGEAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-13T11:22:54.253Z"
+              "WhenOpened": "2025-11-13T11:22:54.253Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "QL_Gym_HLVController.cs",
+              "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Controllers\\QL_Gym_HLVController.cs",
+              "RelativeDocumentMoniker": "QL_Gym_HLV\\Controllers\\QL_Gym_HLVController.cs",
+              "ToolTip": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Controllers\\QL_Gym_HLVController.cs",
+              "RelativeToolTip": "QL_Gym_HLV\\Controllers\\QL_Gym_HLVController.cs",
+              "ViewState": "AgIAAD4BAAAAAAAAAAAgwFoBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T06:07:12.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ChinhSuaLop.cshtml",
+              "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Views\\QL_Gym_HLV\\ChinhSuaLop.cshtml",
+              "RelativeDocumentMoniker": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\ChinhSuaLop.cshtml",
+              "ToolTip": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Views\\QL_Gym_HLV\\ChinhSuaLop.cshtml",
+              "RelativeToolTip": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\ChinhSuaLop.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-20T05:11:57.201Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Web.config",
               "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Web.config",
               "RelativeDocumentMoniker": "QL_Gym_HLV\\Web.config",
@@ -139,32 +191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "QL_Gym_HLV\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "QL_Gym_HLV\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAD0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-18T06:17:17.021Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "QL_Gym_HLVController.cs",
-              "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Controllers\\QL_Gym_HLVController.cs",
-              "RelativeDocumentMoniker": "QL_Gym_HLV\\Controllers\\QL_Gym_HLVController.cs",
-              "ToolTip": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Controllers\\QL_Gym_HLVController.cs",
-              "RelativeToolTip": "QL_Gym_HLV\\Controllers\\QL_Gym_HLVController.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAcwFYAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T06:07:12.247Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "HLV_DangNhap.cshtml",
               "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Views\\QL_Gym_HLV\\HLV_DangNhap.cshtml",
               "RelativeDocumentMoniker": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\HLV_DangNhap.cshtml",
@@ -172,11 +199,12 @@
               "RelativeToolTip": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\HLV_DangNhap.cshtml",
               "ViewState": "AgIAAIkAAAAAAAAAAKBrwJwAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-01T06:59:38.401Z"
+              "WhenOpened": "2025-12-01T06:59:38.401Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "DanhSachLop.cshtml",
               "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Views\\QL_Gym_HLV\\DanhSachLop.cshtml",
               "RelativeDocumentMoniker": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\DanhSachLop.cshtml",
@@ -184,22 +212,24 @@
               "RelativeToolTip": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\DanhSachLop.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAOiHwD8AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-18T00:25:30.758Z"
+              "WhenOpened": "2025-11-18T00:25:30.758Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "QL_Gym_HLV.edmx [Diagram1]",
               "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Models\\QL_Gym_HLV.edmx",
               "RelativeDocumentMoniker": "QL_Gym_HLV\\Models\\QL_Gym_HLV.edmx",
               "ToolTip": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Models\\QL_Gym_HLV.edmx [Diagram1]",
               "RelativeToolTip": "QL_Gym_HLV\\Models\\QL_Gym_HLV.edmx [Diagram1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2025-11-27T14:47:47.413Z"
+              "WhenOpened": "2025-11-27T14:47:47.413Z",
+              "EditorCaption": " [Diagram1]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "ThemLop.cshtml",
               "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Views\\QL_Gym_HLV\\ThemLop.cshtml",
               "RelativeDocumentMoniker": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\ThemLop.cshtml",
@@ -207,11 +237,12 @@
               "RelativeToolTip": "QL_Gym_HLV\\Views\\QL_Gym_HLV\\ThemLop.cshtml",
               "ViewState": "AgIAAAEAAAAAAAAAAMiFwDoAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-18T08:11:43.187Z"
+              "WhenOpened": "2025-11-18T08:11:43.187Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "_MenuChucNang.cshtml",
               "DocumentMoniker": "C:\\Users\\nhokl\\OneDrive\\T\u00E0i li\u1EC7u\\University\\Code\\HQTCSDL\\QL_Gym_HLV\\QL_Gym_HLV\\Views\\Shared\\_MenuChucNang.cshtml",
               "RelativeDocumentMoniker": "QL_Gym_HLV\\Views\\Shared\\_MenuChucNang.cshtml",
@@ -219,7 +250,8 @@
               "RelativeToolTip": "QL_Gym_HLV\\Views\\Shared\\_MenuChucNang.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-18T13:40:16.671Z"
+              "WhenOpened": "2025-11-18T13:40:16.671Z",
+              "EditorCaption": ""
             }
           ]
         }
